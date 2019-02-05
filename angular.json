@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "TalentApp": {
+    "talent-app": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/TalentApp",
+            "outputPath": "dist/talent-app",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -27,6 +27,7 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.scss"
             ],
             "scripts": []
@@ -61,18 +62,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "TalentApp:build"
+            "browserTarget": "talent-app:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "TalentApp:build:production"
+              "browserTarget": "talent-app:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "TalentApp:build"
+            "browserTarget": "talent-app:build"
           }
         },
         "test": {
@@ -83,6 +84,7 @@
             "tsConfig": "src/tsconfig.spec.json",
             "karmaConfig": "src/karma.conf.js",
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.scss"
             ],
             "scripts": [],
@@ -106,7 +108,7 @@
         }
       }
     },
-    "TalentApp-e2e": {
+    "talent-app-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "prefix": "",
@@ -115,11 +117,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "TalentApp:serve"
+            "devServerTarget": "talent-app:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "TalentApp:serve:production"
+              "devServerTarget": "talent-app:serve:production"
             }
           }
         },
@@ -135,5 +137,5 @@
       }
     }
   },
-  "defaultProject": "TalentApp"
+  "defaultProject": "talent-app"
 }
