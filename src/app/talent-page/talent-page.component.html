@@ -1,3 +1,20 @@
-<p>
-  talent-page works!
-</p>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col">
+        <h1 class="text-center">{{ title }}</h1>
+      </div>
+  </div>
+  <div class="row">
+    <div class=" col-sm-4 col-lg-3" *ngFor="let person of people" >
+      <div class="card">
+          <img class="card-img-top" src="{{person.picture.medium}}" alt="{{ person.name.first }} {{ person.name.last }}">
+          <div class="card-body">
+              <h5 class="card-title">{{ person.name.first }} {{ person.name.last }}</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <a href="#" class="btn btn-primary">Contact {{ person.name.first }}</a>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+

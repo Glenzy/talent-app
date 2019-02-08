@@ -71,7 +71,7 @@
         nat: string;
     }
 
-    export interface RootObject {
+    export interface IPerson {
         results: IResult[];
     }
 

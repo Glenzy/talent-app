@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { DataService } from '../core/data.service';
-import { IResult } from '../shared/interfaces';
+import { IPerson } from '../shared/interfaces';
 
 @Component({
   selector: 'app-talent-page',
@@ -11,14 +11,17 @@ import { IResult } from '../shared/interfaces';
 export class TalentPageComponent implements OnInit {
 
   title:string;
-  people: IResult [];
+  people: any [];
 
   constructor(private dataServices:DataService){}
 
   ngOnInit(){
-      this.title = "Talented People";
-      this.dataServices.getUsers().subscribe((users: IResult []) => this.people = users);
-      
+      this.title = "Our Talented People";
+      this.dataServices.getUsers().subscribe((users: any) => {
+        this.people = users.results;
+         console.log(this.people);
+            }
+         );      
   }
 
 }

@@ -8,48 +8,30 @@ import { IResult } from '../shared/interfaces';
 
 @Injectable()
 export class DataService {
-    
-    constructor(private http: HttpClient) { }
+  private userUrl: string;
+  private randomTextUrl: string;
 
-    getUsers() : Observable<IResult[]> {
-        return this.http.get<IResult[]>('https://randomuser.me/api/')
-            .pipe(
-                catchError(this.handleError)
-            );
-    }
-   /* 
-    getCustomer(id: number) : Observable<ICustomer> {
-      return this.http.get<ICustomer[]>(this.baseUrl + 'customers.json')
-        .pipe(
-          map(customers => {
-            let customer = customers.filter((cust: ICustomer) => cust.id === id);
-            return (customer && customer.length) ? customer[0] : null;
-          }),
-          catchError(this.handleError)
-        )
-    }
+  constructor(private http: HttpClient) {
+    this.userUrl = 'https://randomuser.me/';
+    this.randomTextUrl = 'http://www.icndb.com/api/';
+  }
 
-    getOrders(id: number) : Observable<IOrder[]> {
-      return this.http.get<IOrder[]>(this.baseUrl + 'orders.json')
-        .pipe(
-          map(orders => {
-            let custOrders = orders.filter((order: IOrder) => order.customerId === id);
-            return custOrders;
-          }),
-          catchError(this.handleError)
-        );
-    }
+  getUsers(): Observable<IResult[]> {
+    return this.http.get<IResult[]>(`${this.userUrl}api/?results=30`)
+      .pipe(
+        catchError(this.handleError)
+      );
+  }
 
-*/
-    private handleError(error: any) {
-      console.error('server error:', error);
-      if (error.error instanceof Error) {
-          const errMessage = error.error.message;
-          return Observable.throw(errMessage);
-          // Use the following instead if using lite-server
-          // return Observable.throw(err.text() || 'backend server error');
-      }
-      return Observable.throw(error || 'Node.js server error');
+  private handleError(error: any) {
+    console.error('server error:', error);
+    if (error.error instanceof Error) {
+      const errMessage = error.error.message;
+      return Observable.throw(errMessage);
+      // Use the following instead if using lite-server
+      // return Observable.throw(err.text() || 'backend server error');
     }
+    return Observable.throw(error || 'Node.js server error');
+  }
 
 }
