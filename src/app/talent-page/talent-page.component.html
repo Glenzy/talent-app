@@ -1,20 +1,22 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col">
-        <h1 class="text-center">{{ title }}</h1>
-      </div>
+      <h1 class="text-center main-title">{{ title | titlecase }}</h1>
+    </div>
   </div>
   <div class="row">
-    <div class=" col-sm-4 col-lg-3" *ngFor="let person of people" >
+    <div class=" col-sm-4 col-lg-3" *ngFor="let person of people; let index=index">
       <div class="card">
-          <img class="card-img-top" src="{{person.picture.medium}}" alt="{{ person.name.first }} {{ person.name.last }}">
-          <div class="card-body">
-              <h5 class="card-title">{{ person.name.first }} {{ person.name.last }}</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="#" class="btn btn-primary">Contact {{ person.name.first }}</a>
-          </div>
+        <img class="card-img-top" src="{{person.picture.medium}}" alt="{{ person.name.first }} {{ person.name.last }}">
+        <div class="card-body">
+          <h5 class="card-title">{{ person.name.first | titlecase }} {{ person.name.last| titlecase }}</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+            content.</p>
+          <a href="#" class="btn btn-primary contact-btn">Contact {{ person.name.first | titlecase}}</a>
+        </div>
       </div>
     </div>
   </div>
 </div>
-
+<app-user-modal></app-user-modal>
+<button class="btn btn-lg btn-outline-primary" (click)="open(app-user-modal)">Launch demo modal</button>

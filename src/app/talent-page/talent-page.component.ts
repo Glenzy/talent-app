@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { DataService } from '../core/data.service';
 import { IPerson } from '../shared/interfaces';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-talent-page',
@@ -10,18 +11,25 @@ import { IPerson } from '../shared/interfaces';
 })
 export class TalentPageComponent implements OnInit {
 
-  title:string;
-  people: any [];
+  title: string;
+  people: any[];
+  peopleContent: any;
 
-  constructor(private dataServices:DataService){}
+  constructor(
+    private dataServices: DataService,
+    private modalService: NgbModal
+  ) { }
 
-  ngOnInit(){
-      this.title = "Our Talented People";
-      this.dataServices.getUsers().subscribe((users: any) => {
-        this.people = users.results;
-         console.log(this.people);
-            }
-         );      
+  open(content) {
+    this.modalService.open(content);
+  }
+  ngOnInit() {
+    this.title = "Our Talented People";
+    this.dataServices.getUsers().subscribe((users: any) => {
+      this.people = users.results;
+      console.log(this.people);
+    }
+    );
   }
 
 }

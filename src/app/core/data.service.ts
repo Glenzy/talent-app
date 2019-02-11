@@ -4,16 +4,15 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
 
-import { IResult } from '../shared/interfaces';
+import { IResult, IContent } from '../shared/interfaces';
+import { forEach } from '@angular/router/src/utils/collection';
 
 @Injectable()
 export class DataService {
   private userUrl: string;
-  private randomTextUrl: string;
 
   constructor(private http: HttpClient) {
     this.userUrl = 'https://randomuser.me/';
-    this.randomTextUrl = 'http://www.icndb.com/api/';
   }
 
   getUsers(): Observable<IResult[]> {

@@ -75,3 +75,11 @@
         results: IResult[];
     }
 
+
+    export interface IContent {
+        type: string;
+        value: {
+            id: number;
+            joke: string;
+        }
+    }
