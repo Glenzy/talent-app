@@ -2,4 +2,25 @@
   border-radius: 50%;
 }
 
-.modal-dialog {}
+.modal-dialog {
+  margin: 0.5rem auto;
+}
+
+.modal-content,
+.modal-header,
+.modal-footer {
+  border: 0;
+}
+
+.close {
+  background: #d23f34;
+  color: #fff;
+  margin-top: -1.5rem;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  transition: all 0.3s ease-in-out;
+}
+
+.modal-footer {
+  padding: 0 1rem;
+}
