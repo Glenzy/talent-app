@@ -10,10 +10,14 @@ import { forEach } from '@angular/router/src/utils/collection';
 @Injectable()
 export class DataService {
   private userUrl: string;
+  private users: any[];
 
   constructor(private http: HttpClient) {
     this.userUrl = 'https://randomuser.me/';
+    this.users = [];
   }
+
+
 
   getUsers(): Observable<IResult[]> {
     return this.http.get<IResult[]>(`${this.userUrl}api/?results=30`)
@@ -21,6 +25,17 @@ export class DataService {
         catchError(this.handleError)
       );
   }
+
+  loadUsers() {
+    this.getUsers().subscribe((users: any) => {
+      this.users = users.results;
+      console.log(this.users);
+    }
+    );
+    console.log(this.users);
+    return this.users;
+  }
+
 
   private handleError(error: any) {
     console.error('server error:', error);

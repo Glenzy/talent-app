@@ -4,6 +4,8 @@ import { CommonModule } from '@angular/common';
 import { TalentPageComponent } from './talent-page.component';
 import { ModalComponent } from '../modal/modal.component';
 
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+
 
 @NgModule({
   declarations: [
@@ -12,7 +14,9 @@ import { ModalComponent } from '../modal/modal.component';
   ],
   imports: [
     CommonModule,
+    FontAwesomeModule
   ],
-  exports: [TalentPageComponent]
+  exports: [TalentPageComponent],
+  entryComponents: [ModalComponent],
 })
 export class TalentPageModule { }

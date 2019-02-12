@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
 import { DataService } from '../core/data.service';
-import { IPerson } from '../shared/interfaces';
+
+import { ModalComponent } from '../modal/modal.component';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { faPhone, faAt, faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
+
 
 @Component({
   selector: 'app-talent-page',
@@ -13,16 +16,23 @@ export class TalentPageComponent implements OnInit {
 
   title: string;
   people: any[];
-  peopleContent: any;
+  activePerson: any;
+
 
   constructor(
     private dataServices: DataService,
     private modalService: NgbModal
   ) { }
 
-  open(content) {
-    this.modalService.open(content);
+  open(data) {
+    this.activePerson = data;
+    const modalRef = this.modalService.open(ModalComponent);
+    modalRef.componentInstance.activePerson = this.activePerson;
+    modalRef.componentInstance.faPhone = faPhone;
+    modalRef.componentInstance.faAt = faAt;
+    modalRef.componentInstance.faMapMarkerAlt = faMapMarkerAlt;
   }
+
   ngOnInit() {
     this.title = "Our Talented People";
     this.dataServices.getUsers().subscribe((users: any) => {
@@ -31,6 +41,4 @@ export class TalentPageComponent implements OnInit {
     }
     );
   }
-
 }
-
