@@ -17,25 +17,12 @@ export class DataService {
     this.users = [];
   }
 
-
-
   getUsers(): Observable<IResult[]> {
     return this.http.get<IResult[]>(`${this.userUrl}api/?results=30`)
       .pipe(
         catchError(this.handleError)
       );
   }
-
-  loadUsers() {
-    this.getUsers().subscribe((users: any) => {
-      this.users = users.results;
-      console.log(this.users);
-    }
-    );
-    console.log(this.users);
-    return this.users;
-  }
-
 
   private handleError(error: any) {
     console.error('server error:', error);
