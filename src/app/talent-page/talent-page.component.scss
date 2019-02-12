@@ -1,0 +1,33 @@
+.card {
+    margin:20px auto;
+    background-color:rgba(75, 75, 75, 1);
+    transition: all 0.3s ease-in-out;
+    padding: 10px;
+    cursor: pointer;
+    .card-body {
+        padding: 1.25rem 0;
+    }
+    .card-title {
+        color:#fff;
+    }
+    .card-text {
+        color:#e7e7e7;
+    }
+    img {
+        padding-bottom: 0;
+        box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.75);
+        transition: all 0.3s ease-in-out;
+    }
+    .contact-btn {
+        background: #ff6633;
+        border:0;
+    }
+
+    &:hover {
+        background-color:rgba(75, 75, 75, .5);
+        img {
+            box-shadow: 0px 6px 10px 0px rgba(0,0,0,0.75);
+            transform: translateY(-5px);
+        }
+    }
+}

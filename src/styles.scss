@@ -1,1 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
+@import '../node_modules/bootstrap/scss/bootstrap.scss'; 
+
+html, body { height: 100%; }
+body { margin: 0; font-family: 'Open Sans', "Helvetica Neue", sans-serif;background-color:rgb(51, 51, 51); }
+
+.main-title {
+    color:#fff;
+    font-weight: 400;
+    margin:30px auto;
+}
