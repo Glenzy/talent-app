@@ -2,10 +2,9 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 import { Observable } from 'rxjs';
-import { map, catchError } from 'rxjs/operators';
+import { catchError } from 'rxjs/operators';
 
-import { IResult, IContent } from '../shared/interfaces';
-import { forEach } from '@angular/router/src/utils/collection';
+import { IResult } from '../shared/interfaces';
 
 @Injectable()
 export class DataService {
